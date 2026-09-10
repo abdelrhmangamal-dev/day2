@@ -1,0 +1,70 @@
+﻿@model MVC_Day2.Models.Employee
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <div class="details-page">
+
+        <div class="details-card">
+
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    @Model.Name.Substring(0, 1).ToUpper()
+                </div>
+
+                <h1>@Model.Name</h1>
+                <p>Employee Profile</p>
+            </div>
+
+            <div class="details-grid">
+
+                <div class="detail-box">
+                    <span>Employee ID</span>
+                    <strong>#@Model.Id</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Age</span>
+                    <strong>@Model.Age Years</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Salary</span>
+                    <strong>@Model.Salary</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Department ID</span>
+                    <strong>@Model.DepartmentId</strong>
+                </div>
+
+                <div class="detail-box department-box">
+                    <span>Department</span>
+                    <strong>@Model.Department.Name</strong>
+                </div>
+
+            </div>
+
+            <div class="details-actions">
+                <a href="/Home/GetAllEmps" class="employees-btn">
+                    All Employees
+                </a>
+
+                <a href="/Home/Index" class="back-btn">
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

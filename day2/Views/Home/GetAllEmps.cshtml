@@ -1,0 +1,107 @@
+﻿@model List<MVC_Day2.Models.Employee>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Employees</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <div class="employees-page">
+
+        <div class="employees-card">
+
+            <div class="employees-header">
+
+                <div>
+                    <span class="page-label">EMPLOYEE MANAGEMENT</span>
+                    <h1>All Employees</h1>
+                    <p>Manage and view all employees</p>
+                </div>
+
+                <a href="/Home/AddEmp" class="add-employee-btn">
+                    <span>+</span> Add Employee
+                </a>
+
+            </div>
+
+            <div class="employee-count">
+                <strong>@Model.Count</strong>
+                <span>Total Employees</span>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table class="employees-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Employee</th>
+                            <th>Age</th>
+                            <th>Salary</th>
+                            <th>Department</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <span class="employee-id">#@item.Id</span>
+                                </td>
+
+                                <td>
+                                    <div class="employee-name">
+                                        <div class="small-avatar">
+                                            @item.Name.Substring(0, 1).ToUpper()
+                                        </div>
+
+                                        <strong>@item.Name</strong>
+                                    </div>
+                                </td>
+
+                                <td>@item.Age</td>
+
+                                <td>
+                                    <span class="salary">
+                                        @item.Salary
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="department">
+                                        @item.Department.Name
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="/Home/GetEmp/@item.Id" class="view-btn">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="employees-footer">
+                <a href="/Home/Index" class="back-btn">
+                    ← Back to Home
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

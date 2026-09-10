@@ -1,0 +1,87 @@
+﻿```cshtml
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <div class="add-page">
+
+        <div class="add-card">
+
+            <div class="add-header">
+                <div class="add-icon">+</div>
+                <h1>Add New Employee</h1>
+                <p>Create a new employee record</p>
+            </div>
+
+            <form action="/Home/AddEmployee" method="get">
+
+                <div class="field">
+                    <label for="Name">Employee Name</label>
+                    <input id="Name" type="text" name="Name" placeholder="Enter employee name" required />
+                </div>
+
+                <div class="form-row">
+
+                    <div class="field">
+                        <label for="Age">Age</label>
+                        <input id="Age" type="number" name="Age" placeholder="Enter age" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="Salary">Salary</label>
+                        <input id="Salary" type="number" name="Salary" placeholder="Enter salary" required />
+                    </div>
+
+                </div>
+
+                <div class="field">
+                    <label for="DepartmentId">Department ID</label>
+                    <input id="DepartmentId" type="number" name="DepartmentId" placeholder="Enter department ID" required />
+                </div>
+
+                <div class="form-actions">
+
+                    <a href="/Home/Index" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="save-btn">
+                        Add Employee
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+```
+
+كده لما تدوس **Add Employee** هيستدعي:
+
+```csharp
+AddEmployee(Employee emp)
+```
+
+وبالتالي يعمل:
+
+```csharp
+db.Employees.Add(emp);
+db.SaveChanges();
+```
+
+ويضيف الموظف فعليًا.
